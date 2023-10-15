@@ -1,0 +1,83 @@
+@import '../../../../app.component.scss';
+
+
+.header-content-theme-list {
+    width: 100%;
+    height: 100%;
+    list-style: none;
+    margin-top: 5px;
+    padding-top: 5px;
+
+    button {
+        max-width: 100%;
+        height: 50px;
+        display: flex;
+        align-items: center;
+        flex-wrap: wrap;
+        cursor: pointer;
+        font-size: 13px;
+        font-weight: bold;
+        letter-spacing: .5px;
+        color: $font-dark;
+        background-color: $white;
+        box-shadow: $box-shadow;
+        margin-bottom: 5px;
+        border-radius: $border-radius;
+        transition: $transition;
+        width: 180px !important;
+        position: relative;
+
+        .header-theme-btn-color {
+            position: absolute;
+            width: 12px;
+            height: 12px;
+            border-radius: $border-radius;
+            margin-right: 5px;
+            box-shadow: $box-shadow;
+            background-color: $white;
+            transition: $transition;
+            top: 17px;
+
+            &:nth-child(2) {
+                left: 33px;
+            }
+        }
+        
+        span {
+            margin-left: 10px;
+            text-transform: capitalize;
+            position: absolute;
+            right: 0;
+            top: 6px;
+            right: 20px;
+        }
+    }
+}
+
+
+.theme-white {
+    background-color: #fff !important;
+}
+
+.theme-purple { 
+    background-color: #857AC7 !important; 
+}
+
+.theme-dark {
+    background-color: #000 !important; 
+}
+
+.theme-dark-secondary {
+    background-color: #202020 !important; 
+}
+
+.theme-uchiha-primary {
+    background-color: #8C1414 !important;
+}
+.theme-uchiha-secondary {
+    background-color: #131829 !important;
+}
+
+.theme-sennin {
+    background-color: #F77D40 !important; 
+}

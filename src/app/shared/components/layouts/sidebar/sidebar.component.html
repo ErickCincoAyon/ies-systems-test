@@ -1,0 +1,83 @@
+<aside class="sidebar" #sidebar>
+    <ng-container 
+        *ngIf="!( activeSidebar$ | async )"
+    >
+        <div 
+            (click)="toggleSidebar( true );"
+            class="toggle-sidebar"
+        >
+            <div class="toggle-sidebar-menu">
+                <div></div>
+                <div></div>
+                <div></div>
+            </div>
+        </div>
+    </ng-container>
+
+    <ng-container 
+        *ngIf="( activeSidebar$ | async )"
+    >
+        <div 
+            (click)="toggleSidebar( false );"
+            class="toggle-sidebar"
+        >
+            <div class="toggle-sidebar-menu">
+                <div></div>
+                <div></div>
+                <div></div>
+            </div>
+        </div>
+    </ng-container>
+    
+
+    <div class="sidebar-user">
+        <img 
+            src="assets/user.png"
+            alt="user.png"
+        />
+
+        <h3>Erick Cinco</h3>
+    </div>
+
+    <ul class="sidebar-pages">
+        <h2>
+            Paginas
+            <span>—</span>
+        </h2>
+        <li 
+            (click)="toggleSidebar( false );"
+            routerLink="/pages/welcome"
+        >
+            Bienvenida
+            <mat-icon>arrow_right</mat-icon>
+        </li>
+        <li 
+            (click)="toggleSidebar( false );"
+            routerLink="/pages/conversion"
+        >
+            Conversiones
+            <mat-icon>arrow_right</mat-icon>
+        </li>
+        <li 
+            (click)="toggleSidebar( false );"
+            routerLink="/pages/form"
+        >
+            Formularios
+            <mat-icon>arrow_right</mat-icon>
+        </li>
+        <li 
+            (click)="toggleSidebar( false );"
+            routerLink="/pages/date"
+        >
+            Calcular Fecha
+            <mat-icon>arrow_right</mat-icon>
+        </li>
+        <li 
+            (click)="toggleSidebar( false );"
+            routerLink="/pages/info"
+        >
+            Información
+            <mat-icon>arrow_right</mat-icon>
+        </li>
+    </ul>
+</aside>

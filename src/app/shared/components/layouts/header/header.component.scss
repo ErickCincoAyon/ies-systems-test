@@ -1,0 +1,151 @@
+@import '../../../../app.component.scss';
+
+.mat-button {
+    padding: 0 !important;
+    min-width: 35px !important;
+}
+
+.header {
+    width: 100%;
+    height: 60px;
+    background-color: $white;
+    box-shadow: $box-shadow;
+    transition: $transition;
+    
+    .header-content {
+        width: 1100px;
+        height: 100%;
+        margin: 0 auto;
+        display: flex;
+        flex-wrap: wrap;
+
+        .header-content-logo {
+            height: 100%;
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            cursor: pointer;
+
+            img {
+                height: 35px;
+                margin-right: 5px;
+            }
+
+            h1 {
+                font-size: 28px;
+                font-weight: bold;
+                color: $main;
+                font-family: 'Concert One', cursive;
+                text-transform: uppercase;
+                margin: 0;
+                margin-top: -1px;
+                transition: $transition;
+            }
+        }
+
+        .header-content-user {
+            height: 100%;
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            margin-left: auto;
+
+            .header-user-img {
+                height: 35px;
+                padding: 3px;
+                box-shadow: $box-shadow;
+                background-color: $main;
+                transition: $transition;
+                border-radius: $border-radius;
+                overflow: hidden;
+                -webkit-box-sizing: border-box;
+                -moz-box-sizing: border-box;
+                box-sizing: border-box;  
+                display: flex;
+                flex-wrap: wrap;
+
+                img {
+                    height: 100%;
+                    width: 30px;
+                    object-fit: cover;
+                    transition: $transition;
+                    border-radius: $border-radius;
+                }
+
+                h5 {
+                    font-size: 16px;
+                    transition: $transition;
+                    font-weight: 600;
+                    color: $font-white;
+                    padding: 6px 8px 6px 10px;
+                    max-width: 120px;
+                    overflow:hidden;
+                    display:inline-block;
+                    text-overflow: ellipsis;
+                    white-space: nowrap;
+                    min-width: 10px;
+                }
+            }
+
+            
+
+            .header-content-user-btn {
+                width:35px;
+                height:35px;
+                margin-left: 10px;
+                position: relative;
+
+                button {
+                    width: 35px !important;
+                    height: 35px !important;
+                    border: 0;
+                    background-color: $white;
+                    color: $font-dark;
+                    box-shadow: $box-shadow;
+                    border-radius: $border-radius;
+                    transition: $transition;
+                    
+                    mat-icon {
+                        font-size: 22px;
+                        margin-top:-2px;
+                        margin-left: 1.5px;
+                        color: $font-dark;
+                        transition: $transition;
+                    }
+                }
+
+                .header-notify {
+                    position: absolute;
+                    top: -5px;
+                    right: -5px;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    width: 15px;
+                    height: 15px;
+                    background-color: $main;
+                    border-radius: $border-radius;
+                    transition: $transition;
+
+                    span {
+                        font-size: 11px;
+                        margin-left: 1px;
+                        color: $font-white;
+                        transition: $transition;
+                    }
+                }
+
+                .header-theme-btn-box {
+                    position: absolute;
+                    width: 180px;
+                    height: 0;
+                    bottom: -0px;
+                    right: 0;
+                    z-index: 10;
+                    overflow: hidden;
+                    padding: 0 5px;
+                }
+            }
+        }
+    }
+}

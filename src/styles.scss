@@ -1,1 +1,74 @@
-/* You can add global styles to this file, and also import other style files */
+@import 'ngx-toastr/toastr';
+
+@import './app/app.component.scss';
+@import url('https://fonts.googleapis.com/css2?family=Concert+One&display=swap');
+// font-family: 'Concert One', cursive;
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@200&display=swap%27');
+// font-family: 'Josefin Sans', sans-serif;
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300&display=swap%27');
+// font-family: 'Quicksand', sans-serif;
+@import url('https://fonts.googleapis.com/css2?family=Archivo+Black&display=swap');
+// font-family: 'Archivo Black', sans-serif;
+
+*, html, body {
+  margin: 0;
+  padding: 0; 
+  font-family: 'Quicksand', sans-serif;
+}
+
+body {
+  background-color: $body-color;
+}
+
+html {
+  overflow-y: auto;
+  scrollbar-gutter: stable;
+
+  &::-webkit-scrollbar {
+    width: 5px;
+    background-color: $white;
+    color: $main;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background: $main;
+  }
+  
+  &::-webkit-scrollbar-thumb:hover {
+    background: $main-light;
+  }
+}
+
+.toast-success {
+  background-color: $main !important;
+  width: 350px !important;
+}
+
+.toast-info {
+  background-color: $danger !important;
+  width: 350px !important;
+}
+
+.toast-error {
+  width: 350px !important;
+}
+
+.toast-message {
+  letter-spacing: .5px !important;
+}
+
+.mat-checkbox-indeterminate
+.mat-accent .mat-checkbox-background, 
+.mat-checkbox-checked.mat-accent .mat-checkbox-background {
+  background-color: $main;
+}
+
+.page-title {
+  color: $font-dark;
+  font-size: 35px;
+  text-align: center;
+  font-family: 'Archivo Black';
+  margin: 20px 0 20px;
+  text-transform: uppercase;
+  transition: $transition;
+}

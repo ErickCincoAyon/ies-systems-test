@@ -1,0 +1,168 @@
+@import '../../app.component.scss';
+
+.login {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    // background-image: url('../../../assets/login-hexagon.png');
+
+    .login-content {
+        display: flex;
+        flex-wrap: wrap;
+        width: 800px;
+        height: 500px;
+        background-color: $white;
+        box-shadow: $box-shadow;
+        border-radius: $border-radius;
+        overflow: hidden;
+        transition: $transition;
+
+        .login-side-left {
+            flex: 0 0 50%;
+            height: 100%;
+            position: relative;
+
+            .login-side-left-img {
+                position: absolute;
+                z-index: 1;
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+            }
+
+            .login-logo {
+                width: 100%;
+                height: 100%;
+                background-color: rgba(0,0,0,.5);
+                position: relative;
+                z-index: 2;
+                display: flex;
+
+                .login-logo-title {
+                    position: absolute;
+                    display: flex;
+                    flex-wrap: wrap;
+                    width: 100%;
+                    margin-top: 50px;
+                    height: 35px;
+                    align-items: center;
+                    bottom: 0;
+                    padding-left: 10px;
+    
+                    img {
+                        width: 20px;
+                        height: 20px;
+                        filter: invert(100%);
+                        margin-right: 5px;
+                        margin-top: -5px;
+                    }
+    
+                    h2 {
+                        color: $font-white;
+                        font-size: 17px;
+                        font-family: 'Concert One', cursive;
+                        letter-spacing: 1px;
+                        margin-top: -5px;
+                        transition: $transition;
+                    }
+                }
+            }
+        }
+
+        .login-side-right {
+            flex: 0 0 50%;
+            height: 100%;
+            background-color: $white;
+            transition: $transition;
+
+            .login-logo-title {
+                display: flex;
+                flex-wrap: wrap;
+                width: 100%;
+                justify-content: center;
+                margin-top: 50px;
+                height: 55px;
+                align-items: center;
+
+                img {
+                    width: 40px;
+                    height: 40px;
+                    // filter: invert(100%);
+                    margin-right: 10px;
+                }
+
+                h2 {
+                    color: $font-dark;
+                    font-size: 28px;
+                    font-family: 'Concert One', cursive;
+                    letter-spacing: 1px;
+                    margin-top: -5px;
+                    transition: $transition;
+                }
+            }
+
+            .login-form {
+                width: 100%;
+                height: calc( 100% - 105px );
+                padding: 40px 0 0;
+
+                .login-form-field {
+                    width: 80%;
+                    margin: 0 auto;
+                    
+                    &:nth-child(2) {
+                        margin-top: -15px;
+                    }
+
+                    mat-form-field {
+                        width: 100%;
+                    }
+
+                    button {
+                        width: 100%;
+                        height: 50px;
+                        background-color: $main;
+                        color: $font-white;
+                        font-size: 16px;
+                        text-transform: uppercase;
+                        font-weight: bold;
+                        letter-spacing: .5px;
+                        margin-top: 15px;
+                        transition: $transition;
+                    }
+
+                    .invalid-form {
+                        background-color: #777777;
+                    }
+
+                    p {
+                        width: 100%;
+                        font-size: 14px;
+                        color: $font-gray;
+                        margin-top: 15px;
+                        transition: $transition;
+
+                        span {
+                            float: right;
+                            cursor: pointer;
+                            text-decoration: underline;
+                        }
+                    }
+                }
+
+                .login-form-field-checkbox {
+                    margin-top: -10px;
+                    padding-left: 5px;
+                    font-size: 14px;
+                    color: $font-gray;
+                    transition: $transition;
+                }
+            }
+        }
+    }
+
+}

@@ -1,0 +1,39 @@
+<div class="username">
+    <div 
+        class="username-logo"
+        mat-dialog-title
+    >
+        <img src="assets/logo.png" alt="logo.png">
+        <h1>TESTSYSTEMS</h1>
+    </div>
+
+    <form class="username-form">
+        <p>Ingresa tu Nombre</p>
+        <mat-form-field 
+            class="username-form-field"
+            appearance="outline"
+        >
+            <mat-label>Nombre</mat-label>
+            <input
+                matInput 
+                [(ngModel)]="data.name"
+                placeholder="Nombre"
+                (ngModelChange)="modelChanged($event)"
+                [ngModelOptions]="{standalone: true}"
+                required
+            >
+            <mat-icon matSuffix>person</mat-icon>
+        </mat-form-field>
+
+        <button 
+            mat-button 
+            [mat-dialog-close]="data.name"
+            [ngClass]="{
+                'invalid-form': invalidForm
+            }"
+            [disabled]="invalidForm"
+        >
+            Ingresar Nombre
+        </button>
+    </form>
+</div>

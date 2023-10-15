@@ -1,0 +1,31 @@
+<ng-container *ngIf="( activeLoader$ | async )">
+    <div class="loader">
+        <div class="scene">
+
+            <div class="loading-text-div">
+                <div class="loading-text"> <!--Loading-text-->
+                  <h1>CARGANDO
+                    <span class="dot-one"> .</span>
+                    <span class="dot-two"> .</span>
+                    <span class="dot-three"> .</span>
+                  </h1>
+                </div> <!--/Loading-text-->
+              </div>
+
+            <div class="cube-wrapper">
+              <div class="cube">
+                <div class="cube-faces">
+                  <div class="cube-face shadow"></div>
+                  <div class="cube-face bottom"></div>
+                  <div class="cube-face top"></div>
+                  <div class="cube-face left"></div>
+                  <div class="cube-face right"></div>
+                  <div class="cube-face back"></div>
+                  <div class="cube-face front"></div>
+                </div>
+              </div>
+            </div>
+        </div>
+    </div>
+</ng-container>
+

@@ -1,0 +1,90 @@
+<div class="login">
+    <div class="login-content">
+
+        <div class="login-side-left">
+            <img 
+                class="login-side-left-img"
+                src="assets/login.png"
+                alt="login.png"
+            />
+
+            <div class="login-logo">
+                <div class="login-logo-title">
+                    <img 
+                        src="assets/logo.png"
+                        alt="logop.png"    
+                    />
+                    <h2>TESTCOMPANY</h2>
+                </div>
+            </div>
+        </div>
+
+        <div class="login-side-right">
+            <div class="login-logo-title">
+                <img 
+                    src="assets/logo.png"
+                    alt="logop.png"    
+                />
+                <h2>TESTCOMPANY</h2>
+            </div>
+            <form 
+                [formGroup]="loginForm"
+                (ngSubmit)="login();"
+                class="login-form"
+            >
+                <div class="login-form-field">
+                    <mat-form-field appearance="outline">
+                        <mat-label>Usuario</mat-label>
+                        <input 
+                            formControlName="username"
+                            matInput 
+                            placeholder="Usuario"
+                        >
+                        <mat-icon matSuffix>person</mat-icon>
+                    </mat-form-field>
+                </div>
+                
+                <div class="login-form-field">
+                    <mat-form-field appearance="outline">
+                        <mat-label>Contraseña</mat-label>
+                        <input 
+                            formControlName="password"
+                            matInput 
+                            placeholder="Contraseña"
+                            type="password"
+                        >
+                        <mat-icon matSuffix>lock</mat-icon>
+                    </mat-form-field>
+                </div>
+                <div class="login-form-field login-form-field-checkbox">
+                    <mat-checkbox
+                        formControlName="remember"
+                    >
+                        Recordar Credenciales
+                    </mat-checkbox>
+                </div>
+                <div class="login-form-field">
+                    <button 
+                        type="submit"
+                        mat-button
+                        [disabled]="loginForm.invalid"
+                        [ngClass]="{
+                            'invalid-form': loginForm.invalid
+                        }"
+                    >
+                        Iniciar Sesión
+                    </button>
+                </div>
+                <div class="login-form-field">
+                    <p>
+                        ¿Haz olvidado tu contraseña?
+                        <span>
+                            Reestablecer
+                        </span>
+                    </p>
+                </div>
+            </form>
+        </div>
+    </div>
+
+</div>

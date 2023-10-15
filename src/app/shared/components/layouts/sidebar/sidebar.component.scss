@@ -1,0 +1,122 @@
+@import '../../../../app.component.scss';
+
+.sidebar {
+    position: fixed;
+    top: 0;
+    background-color: $main;
+    width: 250px;
+    height: 100vh;
+    padding: 0 10px;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    left: -250px;
+    z-index: 10;
+
+    .toggle-sidebar {
+        position: absolute;
+        right: -50px;
+        top: 10px;
+        width: 40px;
+        height: 40px;
+        background-color: $white;
+        border-radius: $border-radius;
+        box-shadow: $box-shadow;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+
+        .toggle-sidebar-menu {
+            width: 50%;
+            height: 60%;
+            display: flex;
+            align-items: center;
+            flex-wrap: wrap;
+
+            div {
+                width: 100%;
+                height: 4px;
+                background-color: $font-dark;
+                border-radius: 20px;
+            }
+        }
+    }
+
+    .sidebar-user {
+        width: 100%;
+        height: 220px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-wrap: wrap;
+        padding: 15px 0;
+        -webkit-box-sizing: border-box;
+        -moz-box-sizing: border-box;
+        box-sizing: border-box;  
+        border-bottom: 2px solid $border-light;
+
+        img {
+            width: 120px;
+            height: 120px;
+            background-color: $main-light;
+            box-shadow: $box-shadow;
+            border-radius: $border-radius;
+            object-fit: cover;
+        }
+
+        h3 {
+            width: 100%;
+            text-align: center;
+            font-size: 20px;
+            letter-spacing: .5px;
+            color: $font-white-light;
+            padding: 0 10px;
+            overflow:hidden;
+            display:inline-block;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+        }
+    }
+
+    .sidebar-pages {
+        width: 100%;
+        list-style: none;
+        margin-top: 30px;
+
+        h2 {
+            -webkit-box-sizing: border-box;
+            -moz-box-sizing: border-box;
+            box-sizing: border-box;  
+            width: 100%;
+            text-align: left;
+            color: $font-white-light;
+            font-variant: small-caps;
+            font-size: 20px;
+            margin-bottom: 20px;
+
+            span {
+                float: right;
+            }
+        }
+
+        li {
+            padding: 15px 20px;
+            margin-bottom: 10px;
+            background-color: $main-light;
+            color: $font-white;
+            box-shadow: $box-shadow;
+            border-radius: $border-radius;
+            font-weight: 500;
+            font-size: 17px;
+            letter-spacing: .5px;
+            cursor: pointer;
+
+            mat-icon {
+                float: right;
+                font-size: 30px;
+                margin-top: -5px;
+            }
+        }
+    }
+}
