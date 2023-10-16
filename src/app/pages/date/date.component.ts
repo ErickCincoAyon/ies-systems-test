@@ -9,7 +9,8 @@ import { DateForm } from './interfaces/date-form.interface';
 })
 export class DateComponent implements OnInit {
   
-  public date!: string;
+  public selectedDate!: Date;
+  public resultDate!: Date;
   public dateForm: FormGroup = this.fb.group({
     date: ['', [ Validators.required ]],
     unit: ['', [ Validators.required ]],
@@ -26,7 +27,7 @@ export class DateComponent implements OnInit {
   ngOnInit(): void {
     this.dateForm.controls['date']
       .valueChanges.subscribe(change => {
-        this.date = change;
+        this.selectedDate = change;
     });
   }
 
@@ -74,8 +75,8 @@ export class DateComponent implements OnInit {
         date.setFullYear( date.getFullYear() + addition )
       );
     }
-      
-    this.dateForm.controls['date'].setValue( newDate );
+    
+    this.resultDate = newDate;
   }
 
 }

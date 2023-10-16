@@ -16,22 +16,7 @@
     .date-picker-form {
         width: 100%;
         display:block;
-        
-        h3 {
-            width: 100%;
-            margin: 40px 0 20px;
-            font-size: 22px;
-            letter-spacing: .5px;
-            color: $font-dark;
-            transition: $transition;
-
-            span {
-                color: $main;
-                font-weight: bold;
-                transition: $transition;
-                margin-left: 10px;
-            }
-        }
+        padding-top: 60px;
 
         .date-picker-form-field {
             width: 300px;
@@ -61,6 +46,22 @@
 
             .invalid-form {
                 background-color: #777777;
+            }
+        }
+
+        h3 {
+            width: 100%;
+            margin: 40px 0 20px;
+            font-size: 22px;
+            letter-spacing: .5px;
+            color: $font-dark;
+            transition: $transition;
+
+            span {
+                color: $main;
+                font-weight: bold;
+                transition: $transition;
+                margin-left: 10px;
             }
         }
     }

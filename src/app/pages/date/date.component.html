@@ -7,15 +7,6 @@
         (ngSubmit)="add();"
         class="date-picker-form"
     >   
-        <h3>
-            Fecha seleccionada: 
-            <ng-container *ngIf="!date">
-                <span>0/0/0</span>
-            </ng-container>
-            <ng-container *ngIf="date">
-                <span>{{ date | date: 'mediumDate' }}</span>
-            </ng-container>
-        </h3>
         <div class="date-picker-form-field">
             <mat-form-field appearance="outline">
                 <mat-label>Elige una Fecha</mat-label>
@@ -72,5 +63,25 @@
                 Agregar
             </button>
         </div>
+
+        <h3>
+            Fecha seleccionada: 
+            <ng-container *ngIf="!selectedDate">
+                <span>0/0/0</span>
+            </ng-container>
+            <ng-container *ngIf="selectedDate">
+                <span>{{ selectedDate | date: 'mediumDate' }}</span>
+            </ng-container>
+        </h3>
+
+        <h3>
+            El resultado fue: 
+            <ng-container *ngIf="!resultDate">
+                <span>0/0/0</span>
+            </ng-container>
+            <ng-container *ngIf="resultDate">
+                <span>{{ resultDate | date: 'mediumDate' }}</span>
+            </ng-container>
+        </h3>
     </form>
 </div>
