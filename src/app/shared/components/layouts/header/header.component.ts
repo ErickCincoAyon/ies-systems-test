@@ -2,6 +2,7 @@ import { Component, ElementRef, HostListener, OnInit, ViewChild } from '@angular
 import { Store } from '@ngrx/store';
 import { take } from 'rxjs';
 import { AuthState } from 'src/app/store/auth/auth.state';
+import { logout } from 'src/app/store/auth/core/auth.action';
 import { selectName } from 'src/app/store/auth/core/auth.selector';
 import { themeListActive, themeListInactive } from 'src/app/store/ui/core/ui.action';
 import { selectThemeList } from 'src/app/store/ui/core/ui.selector';
@@ -44,5 +45,9 @@ export class HeaderComponent {
         themeListInactive({ themeList: this.themeOptions })
       );
     }
+  }
+
+  logout(): void {
+    this.authStore.dispatch( logout() );
   }
 }

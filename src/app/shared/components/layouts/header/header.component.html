@@ -12,74 +12,84 @@
         </div>
 
         <div class="header-content-user">
-                <div class="header-user-img">
-                    <img
-                        src="assets/user.png"
-                        alt="user.png"
-                    />
+            <div class="header-user-img">
+                <img
+                    src="assets/user.png"
+                    alt="user.png"
+                />
 
-                    <ng-container
-                        *ngIf="( name$ | async )"
-                    >
-                        <h5>{{ 
-                            ( name$ | async ) | cambioLetras
-                        }}</h5>
-                    </ng-container>
-                    <ng-container
-                        *ngIf="!( name$ | async )"
-                    >
-                        <h5> </h5>
-                    </ng-container>
+                <ng-container
+                    *ngIf="( name$ | async )"
+                >
+                    <h5>{{ 
+                        ( name$ | async ) | cambioLetras
+                    }}</h5>
+                </ng-container>
+                <ng-container
+                    *ngIf="!( name$ | async )"
+                >
+                    <h5> </h5>
+                </ng-container>
                     
-                </div>
+            </div>
 
-                <div class="header-content-user-btn">
-                    <button mat-button>
-                        <mat-icon>notifications</mat-icon>
+            <div class="header-content-user-btn">
+                <button mat-button>
+                    <mat-icon>notifications</mat-icon>
+                </button>
+
+                <div class="header-notify">
+                    <span>0</span>
+                </div>
+            </div>
+
+            <div class="header-content-user-btn">
+                <button mat-button>
+                    <mat-icon>mail</mat-icon>
+                </button>
+                    
+                <div class="header-notify">
+                    <span>0</span>
+                </div>
+            </div>
+
+            <div class="header-content-user-btn">
+                <ng-container
+                    *ngIf="!( activeThemeList$ | async )"
+                >
+                    <button 
+                        (click)="showOptionThemes( true );"
+                        mat-button
+                    >
+                        <mat-icon>palette</mat-icon>
                     </button>
+                </ng-container>
 
-                    <div class="header-notify">
-                        <span>0</span>
-                    </div>
-                </div>
-
-                <div class="header-content-user-btn">
-                    <button mat-button>
-                        <mat-icon>mail</mat-icon>
+                <ng-container
+                    *ngIf="( activeThemeList$ | async )"
+                >
+                    <button 
+                        (click)="showOptionThemes( false );"
+                        mat-button
+                    >
+                        <mat-icon>palette</mat-icon>
                     </button>
+                </ng-container>
                     
-                    <div class="header-notify">
-                        <span>0</span>
-                    </div>
+                <div class="header-theme-btn-box" #themeOptions>
+                    <app-theme-settings></app-theme-settings>
                 </div>
+            </div>
 
-                <div class="header-content-user-btn">
-                    <ng-container
-                        *ngIf="!( activeThemeList$ | async )"
-                    >
-                        <button 
-                            (click)="showOptionThemes( true );"
-                            mat-button
-                        >
-                            <mat-icon>palette</mat-icon>
-                        </button>
-                    </ng-container>
-
-                    <ng-container
-                        *ngIf="( activeThemeList$ | async )"
-                    >
-                        <button 
-                            (click)="showOptionThemes( false );"
-                            mat-button
-                        >
-                            <mat-icon>palette</mat-icon>
-                        </button>
-                    </ng-container>
-                    
-                    <div class="header-theme-btn-box" #themeOptions>
-                        <app-theme-settings></app-theme-settings>
-                    </div>
-                </div>
+            <div class="header-content-user-btn header-content-logout">
+                <button 
+                    (click)="logout();"
+                    mat-button
+                >
+                    Cerrar Sesión
+                    <mat-icon>logout</mat-icon>
+                </button>
+            </div>
         </div>
     </div>
 </header>

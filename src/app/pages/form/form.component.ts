@@ -1,5 +1,6 @@
 import { AfterContentChecked, ChangeDetectorRef, Component, OnInit } from '@angular/core';
 import { FormArray, FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Title } from '@angular/platform-browser';
 import { Store, select } from '@ngrx/store';
 import { ToastrService } from 'ngx-toastr';
 import { Subscription } from 'rxjs';
@@ -37,7 +38,10 @@ export class FormComponent implements OnInit, AfterContentChecked {
     private readonly cdref: ChangeDetectorRef,
     private readonly toastrService: ToastrService,
     private readonly pagesStore: Store<PagesState>,
-  ) { }
+    private readonly title: Title,
+  ) {
+    this.title.setTitle('Formularios');
+  }
 
   ngAfterContentChecked() {
     this.cdref.detectChanges();

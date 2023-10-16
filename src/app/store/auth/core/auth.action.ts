@@ -7,6 +7,8 @@ export enum AuthActionTypes {
     LOGIN_AUTH = '[Auth] Login',
     LOGIN_AUTH_SUCCESS = '[Auth] Login Success',
 
+    LOGOUT_AUTH = '[Auth] Logout',
+
     SET_NAME_AUTH = '[Auth] Set Name',
     RESET_NAME_AUTH = '[Auth] Reset Name',
 
@@ -25,6 +27,9 @@ export const login = createAction(
 export const loginSuccess = createAction(
     AuthActionTypes.LOGIN_AUTH_SUCCESS,
     props<{ res: Partial<UserModel> }>(),
+);
+export const logout = createAction(
+    AuthActionTypes.LOGOUT_AUTH,
 );
 
 /**

@@ -11,6 +11,7 @@ import * as actions from './auth.action';
 import { ToastrService } from "ngx-toastr";
 import { Router } from "@angular/router";
 import { loaderActive, loaderInactive } from "../../ui/core/ui.action";
+import { UserModel } from "../models/user.model";
 
 @Injectable()
 export class AuthEffects {
@@ -36,11 +37,11 @@ export class AuthEffects {
             map(( action: any ) => action.form ),
             switchMap(( action: LoginModel ) =>
                 this.authService.login( action ).pipe(
-                    map(( value ) => {
-                        ( action.remember ) &&
-                            this.rememberAndWelcome( action );
+                    map(( user ) => {
+                        
+                        this.rememberAndWelcome( user, action, action.remember );
                         this.uiStore.dispatch( loaderInactive() ); 
-                        return actions.loginSuccess({ res: value })
+                        return actions.loginSuccess({ res: user })
                     }),
                     catchError(( error: ErrorModel ) => {
                         this.uiStore.dispatch( loaderInactive() ); 
@@ -49,6 +50,19 @@ export class AuthEffects {
                 ),
             ),
         )
+    );
+
+    /**
+     * @Logout Effects
+     */
+        loaderActive$ = createEffect(() => 
+        this.actions$.pipe(
+            ofType( AuthActionTypes.LOGOUT_AUTH ),
+            tap(() => {
+                this.authService.logout();
+                this.router.navigate(['/auth/login']);
+            }),
+        ), { dispatch: false }
     );
 
     /**
@@ -64,9 +78,15 @@ export class AuthEffects {
      * * Protected functions 
      */
     protected rememberAndWelcome(
+        user: Partial<UserModel>,
         dataUser: LoginModel,
+        remember: boolean,
     ): void {
-        this.authService.remember( dataUser );
+        
+        ( remember ) &&
+            this.authService.remember( dataUser );
+
+        this.authService.saveUser( user );
         this.toastrService.success('Bienvenido a TESTSYSTEMS');
         this.router.navigate(['/pages/welcome']);
     }

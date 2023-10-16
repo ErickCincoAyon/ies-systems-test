@@ -1,15 +1,17 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
+import { Title } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-info',
   templateUrl: './info.component.html',
   styleUrls: ['./info.component.scss']
 })
-export class InfoComponent implements OnInit {
+export class InfoComponent {
 
-  constructor() { }
-
-  ngOnInit(): void {
+  constructor(
+    private readonly title: Title,
+  ) { 
+    this.title.setTitle('Información del Proyecto');
   }
 
 }

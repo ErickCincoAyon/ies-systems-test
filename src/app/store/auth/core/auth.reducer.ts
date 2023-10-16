@@ -9,6 +9,7 @@ const _authReducer = createReducer(
     on( actions.loginSuccess, ( state, { res }) => ({
         ...state, user: res
     })),
+    on( actions.logout, state => ({ ...state, user: undefined })),
     // Name
     on( actions.setName, ( state, { name }) => ({ ...state, name })),
     on( actions.resetName, state => ({ ...state, name: undefined })),

@@ -122,3 +122,23 @@
         }
     }
 }
+
+@media ( max-width: 1012px ) {
+    .form {
+        width: 100%;
+        padding: 0 20px 50px;
+        box-sizing: border-box;
+
+        .date-picker-form-field {
+            width: 100% !important;
+            box-sizing: border-box;
+        }
+
+        .readed-books-container {
+            .readed-books-h3 {
+                font-size: 16px !important;
+                text-align: left !important;
+            }
+        }
+    }
+}

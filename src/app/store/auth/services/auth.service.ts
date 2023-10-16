@@ -22,6 +22,10 @@ export class AuthService {
         this.localStorageService.saveData( 'datapick', JSON.stringify( form ));
     }
 
+    saveUser( user: Partial<UserModel> ): void {
+        this.localStorageService.saveData('user', JSON.stringify( user ));
+    }
+
     getUser(): string {
         return this.localStorageService.getData('user');
     }
@@ -32,5 +36,9 @@ export class AuthService {
         const { remember, ...rest } = form;
         return this.http
             .post(`${ this.apiUrl }/login`, rest );
+    }
+
+    logout(): void {
+        this.localStorageService.removeData('user');
     }
 }

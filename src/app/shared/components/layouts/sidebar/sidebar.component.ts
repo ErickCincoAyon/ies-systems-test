@@ -1,6 +1,9 @@
 import { Component, ElementRef, HostListener, ViewChild } from '@angular/core';
 import { Store, select } from '@ngrx/store';
 import { take } from 'rxjs';
+import { AuthState } from 'src/app/store/auth/auth.state';
+import { logout } from 'src/app/store/auth/core/auth.action';
+import { selectName } from 'src/app/store/auth/core/auth.selector';
 import { sidebarActive, sidebarInactive } from 'src/app/store/ui/core/ui.action';
 import { selectSidebar } from 'src/app/store/ui/core/ui.selector';
 import { UiState } from 'src/app/store/ui/ui.state';
@@ -12,11 +15,13 @@ import { UiState } from 'src/app/store/ui/ui.state';
 })
 export class SidebarComponent {
 
+  public name$ = this.authStore.select( selectName );
   public activeSidebar$ = this.uiStore.pipe( select( selectSidebar ));
   @ViewChild('sidebar', { static: true }) sidebar!: ElementRef;
 
   constructor(
     private readonly uiStore: Store<UiState>,
+    private readonly authStore: Store<AuthState>,
   ) { }
 
   @HostListener('window:keydown', ['$event'])
@@ -40,6 +45,11 @@ export class SidebarComponent {
 
       this.uiStore.dispatch( sidebarInactive({ sidebar }));
     }
+  }
+
+  logout(): void {
+    this.toggleSidebar( false );
+    this.authStore.dispatch( logout() );
   }
 
 }

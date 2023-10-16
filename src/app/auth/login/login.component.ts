@@ -1,5 +1,6 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Title } from '@angular/platform-browser';
 import { Store, select } from '@ngrx/store';
 import { ToastrService } from 'ngx-toastr';
 import { Subscription } from 'rxjs';
@@ -37,7 +38,9 @@ export class LoginComponent implements OnInit, OnDestroy {
     private readonly authStore: Store<AuthState>,
     private readonly toastrService: ToastrService,
     private readonly localStorageService: LocalStorageService,
+    private readonly title: Title,
   ) { 
+    this.title.setTitle('Login');
     const savedData = this.localStorageService.getData('datapick');
     ( savedData ) &&
       this.setRememberedUser( savedData );
@@ -72,8 +75,12 @@ export class LoginComponent implements OnInit, OnDestroy {
 
   handleError( error?: ErrorModel ): void {
     if ( !error ) return;
+    
+    ( error.status === 404 ) &&
+      this.toastrService.info('Las credenciales son incorrectas !');
 
-    this.toastrService.error('Ha ocurrido un error en el servidor !');
+    ( error.status === 500 || error.status === 502 ) &&
+      this.toastrService.error('Ha ocurrido un error !');
   }
 
   ngOnDestroy(): void {

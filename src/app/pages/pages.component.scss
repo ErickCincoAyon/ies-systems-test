@@ -9,3 +9,12 @@
         margin: 10px auto 0;
     }
 }
+
+@media ( max-width: 1012px ) {
+
+    .pages {
+        .pages-content {
+            width: 100%;
+        }
+    }
+}

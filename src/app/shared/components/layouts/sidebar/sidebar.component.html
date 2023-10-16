@@ -36,7 +36,17 @@
             alt="user.png"
         />
 
-        <h3>Erick Cinco</h3>
+        <ng-container *ngIf="( name$ | async )">
+            <h3>{{ ( name$ | async ) | cambioLetras }}</h3>
+        </ng-container>
+        
+        <button 
+            (click)="logout();"
+            mat-button
+        >
+            Cerrar Sesión
+            <mat-icon>logout</mat-icon>
+        </button>
     </div>
 
     <ul class="sidebar-pages">
@@ -81,3 +91,43 @@
         </li>
     </ul>
 </aside>
+
+<nav class="sidebar-mobile">
+    <div class="sidebar-mobile-logo">
+        <img 
+            src="assets/logo.png"
+            alt="logo.png"    
+        />
+        <h3>TESTCOMPANY</h3>
+    </div>
+    
+    <ng-container 
+        *ngIf="!( activeSidebar$ | async )"
+    >
+        <div 
+            (click)="toggleSidebar( true );"
+            class="sidebar-mobile-bars"
+        >
+            <div class="toggle-sidebar-menu">
+                <div></div>
+                <div></div>
+                <div></div>
+            </div>
+        </div>
+    </ng-container>
+
+    <ng-container 
+        *ngIf="( activeSidebar$ | async )"
+    >
+        <div 
+            (click)="toggleSidebar( false );"
+            class="sidebar-mobile-bars"
+        >
+            <div class="toggle-sidebar-menu">
+                <div></div>
+                <div></div>
+                <div></div>
+            </div>
+        </div>
+    </ng-container>
+</nav>

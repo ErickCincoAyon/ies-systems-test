@@ -166,3 +166,16 @@
     }
 
 }
+
+@media ( max-width: 1012px ) {
+    .login {
+        .login-content {
+            .login-side-left {
+                display: none;
+            }
+            .login-side-right {
+                flex: 0 0 100%;
+            }
+        }
+    }
+}

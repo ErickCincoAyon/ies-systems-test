@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { DateForm } from './interfaces/date-form.interface';
+import { Title } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-date',
@@ -22,7 +23,10 @@ export class DateComponent implements OnInit {
 
   constructor(
     private readonly fb: FormBuilder,
-  ) { }
+    private readonly title: Title,
+  ) { 
+    this.title.setTitle('Conversion de Fechas');
+  }
 
   ngOnInit(): void {
     this.dateForm.controls['date']
