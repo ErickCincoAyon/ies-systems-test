@@ -1,0 +1,124 @@
+@import '../../app.component.scss';
+
+.form {
+    width: 100%;
+    background-color: $white;
+    box-shadow: $box-shadow;
+    border-radius: $border-radius;
+    position: relative;
+    text-align: center;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    transition: $transition;
+    padding-bottom: 45px;
+
+    .date-picker-form {
+        width: 100%;
+        display:block;
+        
+        h3 {
+            width: 100%;
+            margin: 40px 0 20px;
+            font-size: 22px;
+            letter-spacing: .5px;
+            color: $font-dark;
+            transition: $transition;
+
+            span {
+                color: $main;
+                font-weight: bold;
+                transition: $transition;
+                margin-left: 10px;
+            }
+        }
+
+        .date-picker-form-field {
+            width: 500px;
+            margin: 0 auto;
+            margin-top: -5px;
+
+            &:nth-child(2) {
+                margin-top: 0 !important;
+            }
+            
+            mat-form-field {
+                display: inline-block;
+                width: 100%;
+
+                .date-picker-form-field-error {
+                    letter-spacing: .5px;
+                    font-weight: bold;
+                }
+            }
+
+            button {
+                width: 100%;
+                background-color: $main;
+                color: $font-white;
+                font-size: 16px;
+                text-transform: uppercase;
+                font-weight: bold;
+                letter-spacing: .5px;
+                padding: 5px 0;
+                transition: $transition;
+            }
+
+            .invalid-form {
+                background-color: #777777;
+            }
+        }
+
+        .readed-books-container {
+            padding: 15px 20px;
+            margin-bottom: 30px;
+            box-sizing: border-box;
+            border-radius: $border-radius;
+            border: 1px solid #e3e3e3;
+
+            .readed-books-h3 {
+                padding: 10px 20px;
+                text-align: center;
+                color: $font-white;
+                font-size: 20px;
+                margin: 0;
+                margin-bottom: 20px;
+                background-color: $main;
+                box-shadow: $box-shadow;
+                border-radius: $border-radius;
+                box-sizing: border-box;
+                transition: $transition;
+            }
+
+            .readed-books-field {
+                width: 100%;
+                display: flex;
+                align-items: center;
+                flex-wrap: wrap;
+                margin-top: -10px !important;
+
+                mat-form-field {
+                    flex: 1 0 70%;
+                }
+
+                button {
+                    margin-left: 10px;
+                    width: 83px;
+                    height: 58px;
+                    border-radius: $border-radius;
+                    background-color: $red;
+                    margin-top: -20px !important;
+                }
+            }
+
+            .readed-books-add-btn {
+                width: 83px;
+                height: 58px;
+                box-sizing: border-box;
+                font-size: 14px !important;
+                margin: 0 auto !important;
+                margin-left: -40px !important;
+            }
+        }
+    }
+}

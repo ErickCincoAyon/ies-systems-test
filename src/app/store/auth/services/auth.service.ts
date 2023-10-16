@@ -11,7 +11,7 @@ import { LocalStorageService } from "src/app/shared/services/local-storage.servi
 })
 export class AuthService {
     
-    public apiUrl: string = environment.apiUrl;
+    protected apiUrl: string = environment.apiUrl;
 
     constructor(
         private readonly http: HttpClient,

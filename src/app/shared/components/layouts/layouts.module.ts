@@ -7,13 +7,15 @@ import { RouterModule } from '@angular/router';
 import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
 import { ThemeSettingsComponent } from './theme-settings/theme-settings.component';
+import { CambioLetrasPipe } from '../../pipes/cambio-letras.pipe';
 
 @NgModule({
   declarations: [
     HeaderComponent,
     SidebarComponent,
     FooterComponent,
-    ThemeSettingsComponent
+    ThemeSettingsComponent,
+    CambioLetrasPipe,
   ],
   imports: [
     CommonModule,
@@ -25,7 +27,7 @@ import { ThemeSettingsComponent } from './theme-settings/theme-settings.componen
     HeaderComponent,
     SidebarComponent,
     FooterComponent,
-    ThemeSettingsComponent
+    ThemeSettingsComponent,
   ]
 })
 export class LayoutsModule { }

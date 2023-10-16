@@ -1,1 +1,76 @@
-<p>date works!</p>
+<h1 class="page-title">
+    Selector de Fechas
+</h1>
+<div class="date-picker">
+    <form 
+        [formGroup]="dateForm"
+        (ngSubmit)="add();"
+        class="date-picker-form"
+    >   
+        <h3>
+            Fecha seleccionada: 
+            <ng-container *ngIf="!date">
+                <span>0/0/0</span>
+            </ng-container>
+            <ng-container *ngIf="date">
+                <span>{{ date | date: 'mediumDate' }}</span>
+            </ng-container>
+        </h3>
+        <div class="date-picker-form-field">
+            <mat-form-field appearance="outline">
+                <mat-label>Elige una Fecha</mat-label>
+                <input 
+                    matInput 
+                    [matDatepicker]="datepicker"
+                    formControlName="date"
+                >
+                <mat-datepicker-toggle matSuffix [for]="datepicker"></mat-datepicker-toggle>
+                <mat-datepicker #datepicker>
+                  <mat-datepicker-actions>
+                    <button mat-button matDatepickerCancel>Cerrar</button>
+                    <button mat-raised-button color="primary" matDatepickerApply>Elegir</button>
+                  </mat-datepicker-actions>
+                </mat-datepicker>
+            </mat-form-field>
+        </div>
+
+        <div class="date-picker-form-field">
+            <mat-form-field appearance="outline">
+                <mat-label>Tipo de unidad</mat-label>
+                <mat-select formControlName="unit">
+                    <mat-option 
+                        *ngFor="let unit of units" 
+                        [value]="unit"
+                    >
+                        {{ unit }}
+                    </mat-option>
+                </mat-select>
+            </mat-form-field>
+        </div>
+
+        <div class="date-picker-form-field">
+            <mat-form-field appearance="outline">
+                <mat-label>Cantidad a sumar</mat-label>
+                <input 
+                    formControlName="addition"
+                    matInput 
+                    type="number"
+                >
+                <mat-icon matSuffix>person</mat-icon>
+            </mat-form-field>
+        </div>
+
+        <div class="date-picker-form-field">
+            <button 
+                mat-button
+                type="submit"
+                [ngClass]="{
+                    'invalid-form': dateForm.invalid
+                }"
+                [disabled]="dateForm.invalid"
+            >
+                Agregar
+            </button>
+        </div>
+    </form>
+</div>

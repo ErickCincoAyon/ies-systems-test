@@ -1,1 +1,148 @@
-<p>form works!</p>
+<h1 class="page-title">
+    Formularios
+</h1>
+<div class="form">
+    <form 
+        [formGroup]="dataForm"
+        (ngSubmit)="sendForm();"
+        class="date-picker-form"
+    >   
+        <h3>Llenar el Formulario</h3>
+
+        <div class="date-picker-form-field">
+            <mat-form-field appearance="outline">
+                <mat-label>Nombres</mat-label>
+                <input 
+                    formControlName="nombres"
+                    matInput 
+                >
+                <mat-icon matSuffix>person</mat-icon>
+                <mat-error *ngIf="verifySpace('nombres');"
+                    class="date-picker-form-field-error"
+                >
+                    Al final de los nombres no debes dejar un espacio !
+                </mat-error>
+            </mat-form-field>
+        </div>
+
+        <div class="date-picker-form-field">
+            <mat-form-field appearance="outline">
+                <mat-label>Apellidos</mat-label>
+                <input 
+                    formControlName="apellidos"
+                    matInput 
+                >
+                <mat-icon matSuffix>person</mat-icon>
+                <mat-error *ngIf="verifySpace('apellidos');"
+                    class="date-picker-form-field-error"
+                >
+                    Al final de los nombres no debes dejar un espacio !
+                </mat-error>
+            </mat-form-field>
+        </div>
+
+        <div class="date-picker-form-field">
+            <mat-form-field appearance="outline">
+                <mat-label>Fumas</mat-label>
+                <mat-select formControlName="fumas">
+                    <mat-option [value]="true">
+                        Si
+                    </mat-option>
+                    <mat-option [value]="false">
+                        No
+                    </mat-option>
+                </mat-select>
+            </mat-form-field>
+        </div>
+
+        <div class="date-picker-form-field">
+            <mat-form-field appearance="outline">
+                <mat-label>Actualmente Practicas Lectura</mat-label>
+                <mat-select formControlName="actualmentePracticasLectura">
+                    <mat-option 
+                        [value]="true"
+                        (click)="addLibrosLeidosUltimosTresMeses()"
+                    >
+                        Si
+                    </mat-option>
+                    <mat-option [value]="false">
+                        No
+                    </mat-option>
+                </mat-select>
+            </mat-form-field>
+        </div>
+
+
+
+        <ng-container *ngIf="showReadedBooks">
+            <form 
+                class="date-picker-form-field readed-books-container"
+                [formGroup]="dataForm" 
+            >
+
+                <h3 class="readed-books-h3">
+                    Libros Leidos Los Ultimos Tres Meses
+                </h3>
+                <div formArrayName="librosLeidosUltimosTresMeses">
+                  <div *ngFor="let skill of librosLeidosUltimosTresMeses.controls; let i=index">
+                    <div 
+                        [formGroupName]="i"
+                        class="date-picker-form-field readed-books-field"
+                    >
+                        <mat-form-field appearance="outline">
+                            <mat-label>Nombre del Libro</mat-label>
+                            <input 
+                                formControlName="book"
+                                matInput 
+                            >
+                            <mat-icon matSuffix>library_books</mat-icon>
+                        </mat-form-field>
+                        <button 
+                            mat-button 
+                            (click)="removeLibrosLeidosUltimosTresMeses(i)"
+                        >
+                            <mat-icon>delete</mat-icon>
+                        </button>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="date-picker-form-field">
+                    <button
+                        class="readed-books-add-btn"
+                        mat-button
+                        type="button"
+                        (click)="addLibrosLeidosUltimosTresMeses()"
+                    >
+                        <mat-icon>add</mat-icon>
+                    </button>
+                </div>
+              </form>
+        </ng-container>
+
+
+
+        <div class="date-picker-form-field">
+            <mat-form-field appearance="outline">
+                <mat-label>Estado Civil</mat-label>
+                <mat-select formControlName="estadoCivil">
+                    <mat-option 
+                        *ngFor="let state of estadosCiviles"
+                        [value]="state"
+                    >
+                        {{ state }}
+                    </mat-option>
+                </mat-select>
+            </mat-form-field>
+        </div>
+
+        <div class="date-picker-form-field">
+            <button 
+                mat-button
+                type="submit"
+            >
+                Enviar
+            </button>
+        </div>
+    </form>
+</div>

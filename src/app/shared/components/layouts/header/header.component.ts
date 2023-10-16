@@ -35,7 +35,6 @@ export class HeaderComponent {
   }
 
   showOptionThemes( show: boolean ): void {
-    console.log( this.themeOptions );
     if ( show ) {
       this.uiStore.dispatch(
         themeListActive({ themeList: this.themeOptions })

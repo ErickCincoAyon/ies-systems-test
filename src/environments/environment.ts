@@ -5,6 +5,7 @@
 export const environment = {
   production: false,
   apiUrl: 'https://desa.ies-webcontent.com.mx',
+  apiCivilUrl: 'http://201.131.20.125/BienesRaicesApi/api/services/app/Catalogo',
   secretCrypto: 'ERICKCINCOD3VEL0P3R',
 };
 
